@@ -120,6 +120,46 @@ p{
 #navbar ul li a:hover{
     color: #3434ff;
 }
+.login_btn {
+    width: 92px;
+    font-family: arial;
+    color: white ;
+    right: 48px;
+    border-radius: 4px;
+    position: absolute;
+    background-color: #2c23d2;
+    font-size: 18px;
+    padding: 8px 16px;
+    border:none;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+.signup_btn{
+    width:92px;
+    font-family: arial;
+    color: white ;
+    border-radius: 4px;
+    right: 169px;
+    margin-right: 20px;
+    position: absolute;
+    background-color: #2c23d2;
+    font-size: 18px;
+    padding: 8px 16px;
+    border:none;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+.login_btn_style , .signup_btn_style{
+    color: white;
+    text-decoration: none;
+}
+.login_btn :hover ,.signup_btn :hover{
+    color:white;
+    text-decoration: none;
+
+}
 
 
 
