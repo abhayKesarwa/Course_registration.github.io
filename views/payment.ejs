@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<title>Stripe Payment Demo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
+h3{
+    text-align: center;
+    color: #0b0b2c;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height: 1.133em;
+    font-weight: 600;
+}
+form{
+    margin-left: 45%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 500px;
+  margin-left: 50px;
+  margin-top: 80px;
+}
+
+td, th {
+  border: 1px solid #000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<body>
+    <h3 >Welcome to Payment Gateway</h3>
+    <form action="payment" method="POST">
+    <script
+        src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="<%= key %>"
+        data-amount="30000"
+        data-currency="inr"
+        data-name="Educal Payments Page"
+        data-description="Buy Complete Course"
+        data-locale="auto" >
+        </script>
+    </form>
+    <table>
+        <tr>
+          <th>Brand</th>
+          <th>Card</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Visa </td>
+          <td>4242424242424242 </td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Visa (debit) </td>
+          <td>4000056655665556</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>Mastercard</td>
+          <td>5555555555554444</td>
+          <td>Austria</td>
+        </tr>
+        <tr>
+          <td>Mastercard (2-series)</td>
+          <td>2223003122003222</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>Mastercard (debit)</td>
+          <td>5200828282828210</td>
+          <td>Canada</td>
+        </tr>
+        <tr>
+          <td>Mastercard (prepaid)</td>
+          <td>5105105105105100</td>
+          <td>Italy</td>
+        </tr>
+        <tr>
+            <td>American Express</td>
+            <td>378282246310005</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>American Express</td>
+            <td>371449635398431</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Discover</td>
+            <td>6011111111111117</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Discover</td>
+            <td>6011000990139424</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Discover (debit)</td>
+            <td>6011981111111113</td>
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Diners Club</td>
+            <td>3056930009020004</td>
+            <td>Austria</td>
+        </tr>
+    </table>
+</body>
+</html>
