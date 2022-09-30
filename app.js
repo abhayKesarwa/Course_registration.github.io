@@ -70,10 +70,11 @@ app.post('/login', async (req,res) => {
             res.cookie("sign_in",token);
 
 
-            log=1;
+            
 
             if(await bcrypt.compare(pass,useremail.password)){
                 res.redirect("/index.html")
+                log=1;
             }
             else{
                 res.send('<h1 style="text-align:center;margin-top:20%;font-family: sans-serif;">password is not matching</h1>')        
