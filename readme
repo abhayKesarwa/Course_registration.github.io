@@ -1,13 +1,17 @@
 ===========================================INSTRUCTIONS TO RUN THE PROJECT====================================================
 
 
-download all the files in a directory
-download NodeJS application    
-write the command in cmd
+1.download all the files in a directory
+
+2.download NodeJS application    
+
+3.write the command in cmd
     npm i
 this will download the node modules folder in the directory
 
-write the command in cmd
+4.write the command in cmd
     node app.js
-now server is started
-lastly go to any browser and search localhost:80
+    
+6.now server is started
+
+6.lastly go to any browser and search localhost:80
