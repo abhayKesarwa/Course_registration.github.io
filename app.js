@@ -175,8 +175,7 @@ app.get('/logout',auth,async(req,res)=>{
         }
         else{
             res.send('<h1 style="text-align:center;margin-top:20%;font-family: sans-serif;">Please login first</h1>')        
-        }
-        
+        }    
 
     } catch (error) {
     }
@@ -212,9 +211,7 @@ app.post('/suscribe',(req,res)=>{
           res.redirect("/article.html")
         }
       });
-
-
-    
+  
 })
 
 
