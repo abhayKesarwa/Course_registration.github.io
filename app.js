@@ -104,23 +104,23 @@ const stripe = require('stripe')(secret_key);
 
 app.post('/payment_page',async(req,res)=>{
     try {
-        const email = req.body.email
-        const useremail = await Register.findOne({email:email});
+//         const email = req.body.email
+//         const useremail = await Register.findOne({email:email});
         
-        const student_details = useremail.Register.insert({
-            email: email,
-            Firstname : req.body.FirstName,
-            Middlename : req.body.MiddleName,
-            Lastname :req.body.LastName,
-            Birth : req.body.dob,
-            Gender : req.body.gender,
-            Phone:req.body.phone,
-            Address:req.body.address,
-            City:req.body.city,
-            Pincode:req.body.pincode,
-        })
+//         const student_details = useremail.Register.insert({
+//             email: email,
+//             Firstname : req.body.FirstName,
+//             Middlename : req.body.MiddleName,
+//             Lastname :req.body.LastName,
+//             Birth : req.body.dob,
+//             Gender : req.body.gender,
+//             Phone:req.body.phone,
+//             Address:req.body.address,
+//             City:req.body.city,
+//             Pincode:req.body.pincode,
+//         })
     
-        const registered = await student_details.save();
+//         const registered = await student_details.save();
 
         res.render('payment',{ key:publishablekey})
     } catch (error) {
