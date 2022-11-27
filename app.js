@@ -68,8 +68,8 @@ app.post('/login', async (req,res) => {
             const token = await useremail.generateAuthToken();
 
             if(await bcrypt.compare(pass,useremail.password)){
-                res.redirect("/index.html")
                 res.cookie("sign_in",token);
+                res.redirect("/index.html");
                 log=1;
             }
             else{
