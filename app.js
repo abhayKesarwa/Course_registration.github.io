@@ -7,11 +7,12 @@ var bodyParser = require('body-parser')
 const nodemailer = require("nodemailer");
 const express = require('express');
 const app = express()
+const env = require("dotenv");
+env.config();
+
 
 let log = 0;
 
-// using this port
-port=80
 
 
 app.use(express.static(__dirname + '/public'));
@@ -67,6 +68,8 @@ app.post('/login', async (req,res) => {
 
             const token = await useremail.generateAuthToken();
 
+            
+
             if(await bcrypt.compare(pass,useremail.password)){
                 res.cookie("sign_in",token);
                 res.redirect("/index.html");
@@ -96,33 +99,16 @@ app.get('/form',auth,(req,res)=>{
 });
 
 
-const publishablekey = "pk_test_51LlxXLSB8urzT3rAMD7NlM1yDtjXTQEGn1N40m8mGXY1uBPfdG3vg9bbQz4kYrX9PGHP2esiLWeYK3631TUEspXn00rwN6mJnC";
-const secret_key = "sk_test_51LlxXLSB8urzT3rAGcRZT5oiEwqIlIKJNPI34QqyR9sLWqwMswuVDmKHPvhjHxk2Xg9XiJEl5S9cu8i0TMol5iYM00OHMUNRpt";
+const publishablekey = process.env.publishablekey;
+const secret_key = process.env.secret_key;
 app.set('view engine', 'ejs');
 const stripe = require('stripe')(secret_key);
 
 
 app.post('/payment_page',async(req,res)=>{
     try {
-//         const email = req.body.email
-//         const useremail = await Register.findOne({email:email});
-        
-//         const student_details = useremail.Register.insert({
-//             email: email,
-//             Firstname : req.body.FirstName,
-//             Middlename : req.body.MiddleName,
-//             Lastname :req.body.LastName,
-//             Birth : req.body.dob,
-//             Gender : req.body.gender,
-//             Phone:req.body.phone,
-//             Address:req.body.address,
-//             City:req.body.city,
-//             Pincode:req.body.pincode,
-//         })
-    
-//         const registered = await student_details.save();
-
         res.render('payment',{ key:publishablekey})
+
     } catch (error) {
         console.log(error);
     }
@@ -139,13 +125,13 @@ app.post('/payment', async function(req, res){
             port: 465,
             secure: false, // true for 465, false for other ports
             auth: {
-              user: "abhaykesarwani005@gmail.com", // generated ethereal user
-              pass: "mebmfyxjujyumlhq" // generated ethereal password
+              user: process.env.EMAIL, // generated ethereal user
+              pass: process.env.EMAIL_PASS // generated ethereal password
             },
           });
     
           var mailOptions={
-            from: "abhaykesarwani005@gmail.com", 
+            from: process.env.EMAIL, 
             to: mail, 
             subject: "Payment Completed ✔", 
             text: "Hello world?", 
@@ -191,13 +177,13 @@ app.post('/suscribe',(req,res)=>{
         port: 465,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: "abhaykesarwani005@gmail.com", // generated ethereal user
-          pass: "mebmfyxjujyumlhq" // generated ethereal password
+          user: process.env.EMAIL, // generated ethereal user
+          pass: process.env.EMAIL_PASS // generated ethereal password
         },
       });
 
       var mailOptions={
-        from: "abhaykesarwani005@gmail.com", 
+        from: process.env.EMAIL, 
         to: useremail, 
         subject: "Educal Articles ✔", 
         text: "Hello world?", 
@@ -212,13 +198,12 @@ app.post('/suscribe',(req,res)=>{
         }
       });
   
-})
+});
 
 
-
-app.listen(port,(req,rep)=>{
-    console.log(`app lisiting to localhost: ${port}`)
-})
+app.listen(process.env.PORT,(req,rep)=>{
+    console.log(`app lisiting to localhost:${process.env.PORT}`);
+});
 
 
 
@@ -230,9 +215,9 @@ app.listen(port,(req,rep)=>{
 const Register = require("./database");
 
 // connecting to database
-const uri_offline = "mongodb://localhost:27017/course_registration";
+// const uri_offline = "mongodb://localhost:27017/course_registration";
 
-const uri_online = 'mongodb+srv://abhay:abhay@cluster0.guvufta.mongodb.net/student_details?retryWrites=true&w=majority';
+const uri_online = `mongodb+srv://${process.env.DATABASE_ID}:${process.env.DATABASE_PASS}@cluster0.guvufta.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`;
 
 
 mongoose.connect(uri_online ,{
