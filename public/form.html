@@ -1,58 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rgistration form</title>
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="Assets/css/form.css">
 </head>
 <body>
-    <div id="section1">
-        <h2>Course <span>Registration</span></h2>
-    </div>
-    <div id="container">
-        <form action="/payment_page" method="post">
-            <div id="section2">
-                    <input type="email" name="email" >
-                    <h3>Student Name</h3>
-                    <input type="text" name="FirstName" placeholder="First Name" value="" required >
-                    
-                    <input type="text" name="MiddleName" placeholder="Middle Name" value="" >
-            
-                    <input type="text" name="LastName" placeholder="Last Name" value="" required >
-            </div>
-            <div id="section3">               
-                    <h3>Birth Date</h3>
-                    <input type="date" name="dob" required>               
-            </div>
-            <div id="section4">               
-                    <h3>Gender</h3>
 
-                    <label for="male">Male :</label>
-                    <input type="radio" name="gender" value="male" id="male" required>
+    <form action="/payment_page" method="post">
+  
+    <h1>Course Registration page</h1>
+    
+    <fieldset>
+      <legend><span class="number">1</span>Your basic info</legend>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name" placeholder="Full name">
+      
+      <label for="mail">Email:</label>
+      <input type="email" id="mail" name="user_email" placeholder="Email">
+      
+      
+      <label>Date of birth:</label>
+      <input type="date" name="dob" required>
 
-                    <label for="female">Female :</label>
-                    <input type="radio" name="gender" value="female" id="female" required>   
-            </div>
-            <div id="section5">
-                <h3>Phone</h3>
+      <label>Phone no. :</label>
+      <input type="number" value="" name="phone" placeholder="phone no.">
 
-                <input type="phone" value="" name="phone" placeholder="phone no.">
-            </div>
-            <div id="section6">
-                <h3>Address</h3>
+    
+    <label for="job">Courses :</label>
+    <select id="job" name="user_job">
+      <optgroup label="Web Development">
+        <option value="html">html</option>
+        <option value="css">css</option>
+        <option value="javascript">javascript</option>
+        <option value="nodejs">nodejs </option>
+        <option value="mongodb">mongodb</option>
+        <option value="hosting">hosting</option>
+      </optgroup>
+      <optgroup label="programing languages">
+        <option value="c">c</option>
+        <option value="c++">c++</option>
+        <option value="java">java</option>
+        <option value="python">python </option>
+        <option value="swift">swift</option>
+        <option value="ruby">ruby</option>
+      </optgroup>
+      <optgroup label="frameworks">
+        <option value="django">django</option>
+        <option value="ruby on rails">ruby on rails</option>
+        <option value="express">express</option>
+        <option value="react">react </option>
+        <option value="angular">angular</option>
+        <option value="spring">spring</option>
+      </optgroup>
+      <optgroup label="node js">
+        <option value="http">http</option>
+        <option value="express">express</option>
+        <option value="mongodb">mongodb</option>
+      </optgroup>
+    </select>
+    
+    <button type="submit">Enroll</button>
 
-                <input type="text" name="address" value="" class="address" placeholder="Address" required>
-                <br><br>
-                <input type="text" name="city" value="" placeholder="City" required>
-
-                <input type="number" name="pincode" value="" placeholder="Pincode" required>
-            </div>
-
-            <input type="submit" value="submit">
-
-        </form>
-    </div>
+</fieldset>
+  </form>
+  
 </body>
 </html>
